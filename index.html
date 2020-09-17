@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .nofap,.life{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 1px solid black;
+            padding: 10px;
+            background-color: #efefef;
+            margin: 20px 0;
+			position:relative;
+
+        }
+        h1{
+            /*padding: 10px;*/
+            margin: 10px 20px;
+        }
+        #output,#out{
+            border-radius: 22px;
+            text-align: center;
+            border: 1px solid black;
+            padding: 10px;
+            height: 100%;
+            font-size: 2.2rem;
+            background-color: bisque;
+            color: royalblue;
+			position:relative;
+        }
+		.showHover{
+			position:absolute;
+			top:20%;
+			left:0%;
+			display:none;
+			background-color:white;
+			font-size:2rem;
+			padding:10px;
+		}
+		.life:hover .showHover{
+			display:block;
+		}
+
+    </style>
+
+</head>
+<body>
+<div class="nofap">
+    <h1>NoFap Counter:</h1>
+    <div id="output"></div>
+</div>
+
+
+
+<!--
+<div class="life">
+    <h1>NoSong Counter :</h1>
+    <div id="out"></div>
+
+</div>
+
+
+<div class="life">
+    <h1>Social Media Challange :</h1>
+    <div id="out">30 Min per Day (max 40 Min) -inc YouTube</div>
+	<div class="showHover">Time: between 4pm-5pm</div>
+</div>
+
+<div class="life">
+    <h1>Movie Challange :</h1>
+    <div id="out">Max 1 Movie per Week</div>
+	<div class="showHover">Time: after 1am | Day => Saturday</div>
+</div>
+-->
+<script>
+
+    var output = document.getElementById('output');
+    var out = document.getElementById('out');
+
+    var nofap = new Date('17 sept 2020'); 	
+    //var noSong = new Date(2019,5,17,0,0,0);
+
+
+window.onload = init;
+
+function init() {
+    setInterval(launch,100);
+}
+
+function launch() {
+     var a = cDay(nofap);
+   output.innerHTML = a;
+    //var b = cDay(noSong);
+    //out.innerHTML = b;
+//    console.log(b);
+}
+
+
+function cDay(sDate){
+    var now = new Date;
+
+    var dur = now-sDate;
+    var day = Math.floor(dur/(1000*60*60*24));
+    var h = Math.floor((dur%(1000*60*60*24))/(1000*60*60));
+    var min = Math.floor((dur%(1000*60*60))/(1000*60));
+    var sec = Math.floor((dur%(1000*60))/1000);
+
+    sec <10? sec = '0'+sec:sec = sec;
+    var a = 'Days : '+day+' | Hours : '+h +' | Min : '+ min+' | Sec : ' +sec;
+      return a;
+	  
+}
+
+//    console.log(day+' '+h +' '+ min+' ' +sec);
+//    console.log((now-sDate)/(1000*60*60*24));
+//    console.log(Math.floor((dur%(1000*60))/1000));
+//    console.log(Math.floor((now-sDate)/(1000*60*60*24)));
+
+</script>
+
+
+
+
+</body>
+</html>
